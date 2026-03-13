@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 - Frontend Developer</title>
+    
+    <!-- SEO 메타 태그 -->
+    <meta name="description" content="3년차 프론트엔드 개발자 홍길동의 포트폴리오 웹사이트입니다.">
+    <meta name="keywords" content="프론트엔드, 개발자, 포트폴리오, React, JavaScript, HTML, CSS">
+    <meta name="author" content="홍길동">
+    
+    <!-- Open Graph 태그 -->
+    <meta property="og:title" content="홍길동 - Frontend Developer">
+    <meta property="og:description" content="사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#0a0e27',
+                        'dark-card': '#1a1f3a',
+                        'dark-border': '#2a3050',
+                        'accent-orange': '#FF6B6B',
+                        'accent-coral': '#FE5E5E',
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark-bg text-white font-inter overflow-x-hidden">
+    
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 w-full bg-dark-bg/80 backdrop-blur-lg border-b border-dark-border z-50">
+        <nav class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">
+                    <a href="#home" class="text-white hover:text-accent-orange transition-colors duration-300">Jensen Omega</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">Skills</a>
+                    <a href="#experience" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">Experience</a>
+                    <a href="#projects" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent-orange transition-colors duration-300">Contact</a>
+                </div>
+                <!-- 모바일 메뉴 버튼 -->
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- 모바일 메뉴 -->
+            <div class="hidden md:hidden mt-4 bg-dark-card rounded-lg p-4" id="mobile-menu">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-accent-orange transition">Home</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-accent-orange transition">About</a>
+                <a href="#skills" class="block py-2 text-gray-300 hover:text-accent-orange transition">Skills</a>
+                <a href="#experience" class="block py-2 text-gray-300 hover:text-accent-orange transition">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-300 hover:text-accent-orange transition">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-accent-orange transition">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section with SNS Links -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-bg">
+            <div class="absolute top-20 -left-20 w-96 h-96 bg-accent-orange/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 -right-20 w-96 h-96 bg-accent-coral/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-6xl mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <div class="mb-6">
+                        <span class="text-accent-orange font-semibold text-lg">Hello.</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
+                        <span class="text-white">I'm </span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-coral">Jensen</span>
+                    </h1>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+                        Software Developer
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-lg">
+                        I started my software journey from photography. Through that, I learned to 
+                        love the process of creating from scratch.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-10">
+                        <a href="#projects" class="bg-gradient-to-r from-accent-orange to-accent-coral text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-1 transition-all duration-300">
+                            Get a project?
+                        </a>
+                        <a href="#about" class="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-accent-orange hover:text-accent-orange transition-all duration-300">
+                            My resume
+                        </a>
+                    </div>
+                    
+                    <!-- Tech Stack Icons -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-6 text-gray-500">
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">HTML5</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">CSS3</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">JavaScript</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">React</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">Node.js</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">Git</span>
+                        <span class="hover:text-accent-orange transition-colors cursor-pointer">GitHub</span>
+                    </div>
+                </div>
+                
+                <!-- Profile Image Section -->
+                <div class="md:w-1/2 flex justify-center relative">
+                    <div class="relative">
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-10 -left-10 w-32 h-32 border-4 border-accent-orange/30 rounded-full"></div>
+                        <div class="absolute -bottom-10 -right-10 w-48 h-48 border-4 border-accent-coral/30 rounded-full"></div>
+                        
+                        <!-- Profile Image -->
+                        <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-accent-orange/50 shadow-2xl shadow-accent-orange/20">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- SNS Links - Floating Around Profile -->
+                        <div class="absolute -left-20 top-1/2 -translate-y-1/2 space-y-4">
+                            <a href="https://github.com/username" target="_blank" class="block w-12 h-12 bg-dark-card/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/username" target="_blank" class="block w-12 h-12 bg-dark-card/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://instagram.com/username" target="_blank" class="block w-12 h-12 bg-dark-card/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">About me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Service Cards -->
+                <div class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange to-accent-coral rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative bg-dark-card border border-dark-border rounded-lg p-8 hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="w-14 h-14 bg-accent-orange/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-accent-orange text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Website Development</h3>
+                        <p class="text-gray-400">사용자 친화적이고 반응형 웹사이트를 개발합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange to-accent-coral rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative bg-dark-card border border-dark-border rounded-lg p-8 hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="w-14 h-14 bg-accent-orange/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-mobile-alt text-accent-orange text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">App Development</h3>
+                        <p class="text-gray-400">모바일 최적화된 PWA와 SPA를 개발합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange to-accent-coral rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative bg-dark-card border border-dark-border rounded-lg p-8 hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="w-14 h-14 bg-accent-orange/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-server text-accent-orange text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Website Hosting</h3>
+                        <p class="text-gray-400">안정적인 배포와 호스팅 서비스를 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <h3 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-coral mb-2">120+</h3>
+                    <p class="text-gray-400">Completed Projects</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-coral mb-2">95%</h3>
+                    <p class="text-gray-400">Client Satisfaction</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-coral mb-2">10+</h3>
+                    <p class="text-gray-400">Years of Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 relative bg-dark-card/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Skills</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="bg-dark-bg/50 backdrop-blur border border-dark-border p-8 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                    <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                        <i class="fas fa-code mr-3 text-accent-orange"></i>Frontend
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">HTML5 / CSS3</span>
+                                <span class="text-accent-orange font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">JavaScript (ES6+)</span>
+                                <span class="text-accent-orange font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">React</span>
+                                <span class="text-accent-orange font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Vue.js</span>
+                                <span class="text-accent-orange font-semibold">75%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Styling -->
+                <div class="bg-dark-bg/50 backdrop-blur border border-dark-border p-8 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                    <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                        <i class="fas fa-palette mr-3 text-accent-orange"></i>Styling
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">TailwindCSS</span>
+                                <span class="text-accent-orange font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Sass/SCSS</span>
+                                <span class="text-accent-orange font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Bootstrap</span>
+                                <span class="text-accent-orange font-semibold">75%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Styled Components</span>
+                                <span class="text-accent-orange font-semibold">70%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Others -->
+                <div class="bg-dark-bg/50 backdrop-blur border border-dark-border p-8 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                    <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                        <i class="fas fa-tools mr-3 text-accent-orange"></i>Tools & Others
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Git / GitHub</span>
+                                <span class="text-accent-orange font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">npm / yarn</span>
+                                <span class="text-accent-orange font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Webpack / Vite</span>
+                                <span class="text-accent-orange font-semibold">75%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">RESTful API</span>
+                                <span class="text-accent-orange font-semibold">80%</span>
+                            </div>
+                            <div class="w-full bg-dark-border rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-accent-orange to-accent-coral h-2 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <!-- Experience Item 1 -->
+                <div class="relative pl-8 pb-8 border-l-2 border-accent-orange/50">
+                    <div class="absolute w-4 h-4 bg-accent-orange rounded-full -left-[9px] top-0 animate-pulse"></div>
+                    <div class="bg-dark-card border border-dark-border p-6 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                        <h3 class="font-bold text-xl mb-2 text-white">Senior Frontend Developer</h3>
+                        <p class="text-accent-orange mb-4">ABC Tech Company | 2022.03 - Present</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>회사 메인 웹사이트 리뉴얼 프로젝트 리드</li>
+                            <li>React 기반 SPA 개발 및 성능 최적화</li>
+                            <li>웹 접근성 개선으로 WCAG 2.1 AA 등급 달성</li>
+                            <li>로딩 속도 40% 개선 (3초 → 1.8초)</li>
+                            <li>신입 개발자 멘토링 및 코드 리뷰</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 2 -->
+                <div class="relative pl-8 pb-8 border-l-2 border-accent-orange/50">
+                    <div class="absolute w-4 h-4 bg-accent-orange rounded-full -left-[9px] top-0"></div>
+                    <div class="bg-dark-card border border-dark-border p-6 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                        <h3 class="font-bold text-xl mb-2 text-white">Junior Frontend Developer</h3>
+                        <p class="text-accent-orange mb-4">XYZ Startup | 2021.01 - 2022.02</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Vue.js를 활용한 관리자 대시보드 개발</li>
+                            <li>반응형 웹 디자인 구현</li>
+                            <li>RESTful API 연동 및 상태 관리</li>
+                            <li>크로스 브라우저 호환성 테스트 및 버그 수정</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 3 -->
+                <div class="relative pl-8 border-l-2 border-accent-orange/50">
+                    <div class="absolute w-4 h-4 bg-accent-orange rounded-full -left-[9px] top-0"></div>
+                    <div class="bg-dark-card border border-dark-border p-6 rounded-lg hover:border-accent-orange/50 transition-all duration-300">
+                        <h3 class="font-bold text-xl mb-2 text-white">Web Development Intern</h3>
+                        <p class="text-accent-orange mb-4">DEF Company | 2020.07 - 2020.12</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>HTML/CSS/JavaScript를 활용한 웹페이지 제작</li>
+                            <li>jQuery를 활용한 인터랙티브 기능 구현</li>
+                            <li>웹사이트 유지보수 및 콘텐츠 업데이트</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 relative bg-dark-card/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            
+            <!-- Project Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-lg bg-gradient-to-r from-accent-orange to-accent-coral text-white font-semibold" data-filter="all">
+                    All
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg bg-dark-bg border border-dark-border text-gray-300 hover:border-accent-orange hover:text-accent-orange transition-all duration-300" data-filter="react">
+                    React
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg bg-dark-bg border border-dark-border text-gray-300 hover:border-accent-orange hover:text-accent-orange transition-all duration-300" data-filter="vue">
+                    Vue.js
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg bg-dark-bg border border-dark-border text-gray-300 hover:border-accent-orange hover:text-accent-orange transition-all duration-300" data-filter="javascript">
+                    JavaScript
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-item group relative" data-category="react">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-commerce 웹사이트" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project1" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project1-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">E-commerce 웹사이트</h3>
+                            <p class="text-gray-400 mb-4">React와 Redux를 활용한 온라인 쇼핑몰 프론트엔드 개발</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">Redux</span>
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">TailwindCSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item group relative" data-category="vue">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="관리자 대시보드" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project2" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project2-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">관리자 대시보드</h3>
+                            <p class="text-gray-400 mb-4">Vue.js와 Vuex를 활용한 실시간 데이터 시각화 대시보드</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Vuex</span>
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Chart.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item group relative" data-category="javascript">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop" alt="날씨 앱" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project3" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project3-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">날씨 애플리케이션</h3>
+                            <p class="text-gray-400 mb-4">OpenWeather API를 활용한 실시간 날씨 정보 제공 웹앱</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">API</span>
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-item group relative" data-category="react">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop" alt="Todo 앱" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project4" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project4-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">Todo List 앱</h3>
+                            <p class="text-gray-400 mb-4">React Hooks를 활용한 할 일 관리 애플리케이션</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">Hooks</span>
+                                <span class="px-3 py-1 bg-accent-orange/10 text-accent-orange border border-accent-orange/30 rounded-full text-sm">LocalStorage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-item group relative" data-category="javascript">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop" alt="포트폴리오 웹사이트" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project5" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project5-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">포트폴리오 웹사이트</h3>
+                            <p class="text-gray-400 mb-4">반응형 디자인을 적용한 개인 포트폴리오 웹사이트</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">HTML5</span>
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">CSS3</span>
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-full text-sm">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-item group relative" data-category="vue">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/20 to-accent-coral/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border rounded-xl overflow-hidden hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="블로그 플랫폼" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="flex gap-4">
+                                    <a href="https://github.com/username/project6" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://project6-demo.com" target="_blank" class="w-12 h-12 bg-dark-bg/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:bg-accent-orange/10 transition-all duration-300 transform hover:scale-110">
+                                        <i class="fas fa-external-link-alt text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-white group-hover:text-accent-orange transition-colors">블로그 플랫폼</h3>
+                            <p class="text-gray-400 mb-4">Vue.js와 Firebase를 활용한 블로그 플랫폼</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-sm">Vuetify</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="py-32 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Education</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="group relative mb-8">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/10 to-accent-coral/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border p-8 rounded-xl hover:border-accent-orange/50 transition-all duration-300">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-14 h-14 bg-gradient-to-r from-accent-orange to-accent-coral rounded-full flex items-center justify-center shadow-lg shadow-accent-orange/25">
+                                    <i class="fas fa-graduation-cap text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="font-bold text-xl mb-2 text-white">컴퓨터공학과 학사</h3>
+                                <p class="text-accent-orange mb-3">○○대학교 | 2018.03 - 2022.02</p>
+                                <p class="text-gray-400 mb-3">학점: 3.8/4.5</p>
+                                <ul class="space-y-2 text-gray-400">
+                                    <li class="flex items-start">
+                                        <span class="text-accent-orange mr-2">•</span>
+                                        <span>웹 프로그래밍 동아리 회장 (2020-2021)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-accent-orange mr-2">•</span>
+                                        <span>소프트웨어 경진대회 우수상 수상 (2021)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-accent-orange mr-2">•</span>
+                                        <span>캡스톤 디자인 프로젝트 최우수상</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/10 to-accent-coral/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative bg-dark-card/50 backdrop-blur-sm border border-dark-border p-8 rounded-xl hover:border-accent-orange/50 transition-all duration-300">
+                        <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                            <i class="fas fa-certificate text-accent-orange mr-3"></i>Certifications & Education
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start group/item">
+                                <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover/item:bg-accent-orange/20 transition-colors">
+                                    <i class="fas fa-check text-accent-orange"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">정보처리기사</p>
+                                    <p class="text-sm text-gray-400">한국산업인력공단 | 2021.11</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start group/item">
+                                <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover/item:bg-accent-orange/20 transition-colors">
+                                    <i class="fas fa-check text-accent-orange"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">SQLD (SQL 개발자)</p>
+                                    <p class="text-sm text-gray-400">한국데이터산업진흥원 | 2021.06</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start group/item">
+                                <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover/item:bg-accent-orange/20 transition-colors">
+                                    <i class="fas fa-check text-accent-orange"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">React 완벽 가이드 수료</p>
+                                    <p class="text-sm text-gray-400">Udemy | 2021.03</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 relative bg-dark-card/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mx-auto"></div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Contact Information -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/5 to-accent-coral/5 rounded-xl blur-xl"></div>
+                        <div class="relative bg-dark-bg/50 backdrop-blur-sm border border-dark-border p-8 rounded-xl">
+                            <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                                <span class="w-10 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mr-3"></span>
+                                Get in Touch
+                            </h3>
+                            <div class="space-y-5">
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent-orange/20 transition-colors">
+                                        <i class="fas fa-envelope text-accent-orange"></i>
+                                    </div>
+                                    <span class="text-gray-300 group-hover:text-white transition-colors">example@email.com</span>
+                                </div>
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent-orange/20 transition-colors">
+                                        <i class="fas fa-phone text-accent-orange"></i>
+                                    </div>
+                                    <span class="text-gray-300 group-hover:text-white transition-colors">010-1234-5678</span>
+                                </div>
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 bg-accent-orange/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-accent-orange/20 transition-colors">
+                                        <i class="fas fa-map-marker-alt text-accent-orange"></i>
+                                    </div>
+                                    <span class="text-gray-300 group-hover:text-white transition-colors">서울특별시 강남구</span>
+                                </div>
+                            </div>
+                            
+                            <!-- SNS Links in Contact -->
+                            <div class="mt-8">
+                                <h4 class="font-semibold mb-4 text-white">Follow Me</h4>
+                                <div class="flex space-x-3">
+                                    <a href="https://github.com/username" target="_blank" class="w-12 h-12 bg-dark-card/80 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300 group">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/username" target="_blank" class="w-12 h-12 bg-dark-card/80 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300 group">
+                                        <i class="fab fa-linkedin text-xl"></i>
+                                    </a>
+                                    <a href="https://instagram.com/username" target="_blank" class="w-12 h-12 bg-dark-card/80 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300 group">
+                                        <i class="fab fa-instagram text-xl"></i>
+                                    </a>
+                                    <a href="https://youtube.com/@username" target="_blank" class="w-12 h-12 bg-dark-card/80 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300 group">
+                                        <i class="fab fa-youtube text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent-orange/5 to-accent-coral/5 rounded-xl blur-xl"></div>
+                        <div class="relative bg-dark-bg/50 backdrop-blur-sm border border-dark-border p-8 rounded-xl">
+                            <h3 class="font-bold text-xl mb-6 text-white flex items-center">
+                                <span class="w-10 h-1 bg-gradient-to-r from-accent-orange to-accent-coral mr-3"></span>
+                                Send Message
+                            </h3>
+                            <form id="contact-form" class="space-y-4">
+                                <div>
+                                    <input type="text" name="name" placeholder="Your Name" required
+                                           class="w-full px-5 py-3 bg-dark-card/50 backdrop-blur border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-orange focus:bg-dark-card/80 transition-all duration-300">
+                                </div>
+                                <div>
+                                    <input type="email" name="email" placeholder="Your Email" required
+                                           class="w-full px-5 py-3 bg-dark-card/50 backdrop-blur border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-orange focus:bg-dark-card/80 transition-all duration-300">
+                                </div>
+                                <div>
+                                    <input type="text" name="subject" placeholder="Subject" required
+                                           class="w-full px-5 py-3 bg-dark-card/50 backdrop-blur border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-orange focus:bg-dark-card/80 transition-all duration-300">
+                                </div>
+                                <div>
+                                    <textarea name="message" rows="5" placeholder="Your Message" required
+                                              class="w-full px-5 py-3 bg-dark-card/50 backdrop-blur border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-accent-orange focus:bg-dark-card/80 transition-all duration-300 resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-accent-orange to-accent-coral text-white py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-1 transition-all duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-dark-border py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h3 class="text-xl font-bold text-white mb-2">Jensen Omega</h3>
+                    <p class="text-gray-400">&copy; 2025 All rights reserved.</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-400 mr-2">Follow me:</span>
+                    <a href="https://github.com/username" target="_blank" class="w-10 h-10 bg-dark-card/50 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/username" target="_blank" class="w-10 h-10 bg-dark-card/50 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://instagram.com/username" target="_blank" class="w-10 h-10 bg-dark-card/50 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@username" target="_blank" class="w-10 h-10 bg-dark-card/50 backdrop-blur border border-dark-border rounded-full flex items-center justify-center text-gray-400 hover:text-accent-orange hover:border-accent-orange/50 hover:bg-accent-orange/10 transition-all duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-accent-orange to-accent-coral text-white rounded-full shadow-xl shadow-accent-orange/25 hover:shadow-2xl hover:shadow-accent-orange/30 transform hover:-translate-y-1 transition-all duration-300 opacity-0 invisible flex items-center justify-center group">
+        <i class="fas fa-arrow-up text-lg group-hover:animate-bounce"></i>
+    </button>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
